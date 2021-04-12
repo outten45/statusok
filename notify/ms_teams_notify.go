@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"strconv"
@@ -51,7 +50,6 @@ func (msTeamsNotify MSTeamsNotify) SendResponseTimeNotification(responseTimeNoti
 	if jsonErr != nil {
 		return jsonErr
 	}
-	fmt.Printf("payload: |%v|\n", payload)
 	getResponse, respErr := http.Post(msTeamsNotify.ChannelWebhookURL, "application/json", payload)
 
 	if respErr != nil {

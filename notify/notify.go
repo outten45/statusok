@@ -155,10 +155,13 @@ func isEmptyObject(objectString string) bool {
 //A readable message string from responseTimeNotification
 func getMessageFromResponseTimeNotification(responseTimeNotification ResponseTimeNotification) string {
 
-	message := fmt.Sprintf("Notification From StatusOk\n\nOne of your apis response time is below than expected."+
-		"\n\nPlease find the Details below"+
-		"\n\nUrl: %v \nRequestType: %v \nCurrent Average Response Time: %v ms\nExpected Response Time: %v ms\n"+
-		"\n\nThanks", responseTimeNotification.Url, responseTimeNotification.RequestType, responseTimeNotification.MeanResponseTime, responseTimeNotification.ExpectedResponsetime)
+	message := fmt.Sprintf("One of your apis response time is below than expected.\n\n"+
+		"URL: <a href=\"%v\">%v</a> \n\nRequestType: %v \n\nCurrent Average Response Time: %v ms Expected Response Time: %v ms (StatusOk)",
+		responseTimeNotification.Url,
+		responseTimeNotification.Url,
+		responseTimeNotification.RequestType,
+		responseTimeNotification.MeanResponseTime,
+		responseTimeNotification.ExpectedResponsetime)
 
 	return message
 }
@@ -166,10 +169,14 @@ func getMessageFromResponseTimeNotification(responseTimeNotification ResponseTim
 //A readable message string from errorNotification
 func getMessageFromErrorNotification(errorNotification ErrorNotification) string {
 
-	message := fmt.Sprintf("Notification From StatusOk\n\nWe are getting error when we try to send request to one of your apis"+
-		"\n\nPlease find the Details below"+
-		"\n\nUrl: %v \nRequestType: %v \nError Message: %v \nResponse Body: %v\nOther Info:%v\n"+
-		"\n\nThanks", errorNotification.Url, errorNotification.RequestType, errorNotification.Error, errorNotification.ResponseBody, errorNotification.OtherInfo)
+	message := fmt.Sprintf("Error from one of your apis\n\n"+
+		"URL: <a href=\"%v\">%v</a> \n\nRequestType: %v \n\nError Message: %v \n\n-------\n\nResponse Body: %v\n\nOther Info:%v\n",
+		errorNotification.Url,
+		errorNotification.Url,
+		errorNotification.RequestType,
+		errorNotification.Error,
+		errorNotification.ResponseBody,
+		errorNotification.OtherInfo)
 
 	return message
 }
