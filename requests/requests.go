@@ -114,7 +114,7 @@ func RequestsInit(data []RequestConfig, concurrency int) {
 			println("Type :", requestConfig.RequestType)
 			println("Error Reason :", reqErr.Error())
 			println("\nPlease check the config file and try again")
-			os.Exit(3)
+			// os.Exit(3)
 		}
 	}
 

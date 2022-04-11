@@ -166,7 +166,7 @@ func validateAndCreateIdsForRequests(reqs []requests.RequestConfig) ([]requests.
 		if validateErr != nil {
 			println("\nInvalid Request data in config file for Request #", i, " ", requestConfig.Url)
 			println("Error:", validateErr.Error())
-			os.Exit(3)
+			// os.Exit(3)
 		}
 
 		//Set a random value as id
